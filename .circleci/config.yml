@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: edvinas108/meme-grid:latest
+    steps:
+      - checkout
+      - run:
+          -name: Run tests
+          -command: ./gradlew test
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
