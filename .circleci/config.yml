@@ -5,6 +5,10 @@ jobs:
       - image: circleci/openjdk:8
     steps:
       - checkout
+      - restore_cache:
+          key: v1-gradle-wrapper-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
+      - restore_cache:
+          key: v1-gradle-cache-{{ checksum "build.gradle" }}
       - run:
           -name: Run tests
           -command: ./gradlew test
