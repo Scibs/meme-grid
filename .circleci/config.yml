@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: edvinas108/meme-grid:latest
+      - image: circleci/openjdk:8
     steps:
       - checkout
       - run:
