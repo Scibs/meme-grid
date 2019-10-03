@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  test:
+  check:
     docker:
       - image: circleci/openjdk:8
     steps:
@@ -10,10 +10,10 @@ jobs:
       - restore_cache:
           key: v1-gradle-cache-{{ checksum "build.gradle" }}
       - run:
-          -name: Run tests
-          -command: ./gradlew test
+          -name: Run check
+          -command: ./gradlew check
 workflows:
   version: 2
-  test:
+  check:
     jobs:
-      - test
+      - check
